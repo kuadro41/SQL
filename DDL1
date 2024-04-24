@@ -1,0 +1,31 @@
+Veri Tanımlama Dili
+Veri tanımı dili (DDL), veritabanı nesnelerini yaratan, değiştiren ve sildiği SQL ' in bölümünü açıklar. Bu veritabanı nesneleri şemaları, çizelgeleri, görünümleri, sıraları, katalogları, dizinleri, değişkenleri, maskeleri, izinleri ve diğer adları içerir.
+•	Şema yaratılması
+Şema, SQL nesnelerinin mantıksal bir gruplamasını sağlar. Şema yaratmak için, CREATE SCHEMA ifadesini kullanın.
+Şema, bir kitaplıktan, günlükten, günlük nesnesinden, katalogdan ve isteğe bağlı olarak bir veri sözlüğünden oluşur. Çizelgeler, görünümler ve sistem nesneleri (örneğin, programlar) herhangi bir sistem kitaplıklarına yaratılabilir, taşınabilir ya da geri yüklenemez. SQL şeması bir veri sözlüğü içermiyorsa, tüm sistem dosyaları bir SQL şemasına yaratılabilir ya da bu şemaya taşınabilir. SQL şemasının içerdiği bir veri sözlüğü varsa:
+•	Bir üyeye sahip kaynak fiziksel dosyalar ya da kaynak olmayan fiziksel dosyalar bir SQL şemasına yaratılabilir, taşınabilir ya da geri yüklenemez.
+•	Mantıksal dosyalar, veri sözlüğünde açıklanamadığı için bir SQL şemasına yerleştirilemiyor.
+
+•	Tablo oluşturma
+Tablolar, satır ve sütunlardan oluşan iki boyutlu veri düzenlemesi olarak görselleştirilebilir. Tablo yaratmak için CREATE TABLE ifadesini kullanın.
+ÖRNEK ; CREATE TABLE kisiler (
+  kisi_sira INT,
+  kisi_adi VARCHAR(20),
+  kisi_soyadi VARCHAR(30),
+  kisi_eposta VARCHAR(50)
+);
+
+•	LIKE kullanarak tablo yaratılması
+Başka bir tablo gibi görünen bir tablo oluşturabilirsiniz. Yani, var olan bir tablodan tüm sütun tanımlamalarını içeren bir tablo oluşturabilirsiniz.
+
+ÖRNEK : Create Table AD LİKE AD2;
+
+•	AS kullanarak tablo oluşturma
+Bir SELECT deyiminin sonucundan bir tablo oluşturabilirsiniz. Bu çizelge tipini yaratmak için, CREATE TABLE AS deyimini kullanın.
+•	SELECT deyiminde kullanılabilecek tüm ifadeler CREATE TABLE AS deyiminde kullanılabilir. Ayrıca, seçtiğiniz çizelgedeki ya da çizelgelerdeki tüm verileri de içerebilirsiniz.
+Örneğin, DEPARTMAN = D11' in bulunduğu DOSYA18 çizelgesinden bir kolon tanımları ve veri altkümesi içeren DOSYA21 adlı bir çizelge yaratın.
+
+    CREATE TABLE DOSYA21 AS
+	(SELECT ŞİRKET, SOYAD , İŞ
+	  FROM DOSYA18
+	  WHERE DEPARTMAN = ‘D11’) WİTH DATA;
